@@ -3,7 +3,7 @@
 
     python3 tools/build-photos.py
 
-Reads from "Festa 2025/" (not committed), writes to assets/img/photos/.
+Reads from "Festa 2025/" and assets/img/original/ (both uncommitted), writes to assets/img/photos/.
 Each line below is: (filename fragment to match, output name, width, height, crop-center x, crop-center y).
 Crop centers are 0–1; (0.5, 0.5) is the middle of the photo. Needs Pillow: pip3 install pillow
 """
@@ -11,7 +11,7 @@ import os, sys
 from PIL import Image, ImageOps
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, 'Festa 2025')
+SRCS = [os.path.join(ROOT, 'Festa 2025'), os.path.join(ROOT, 'assets/img/original')]
 OUT = os.path.join(ROOT, 'assets/img/photos')
 
 PHOTOS = [
@@ -25,7 +25,7 @@ PHOTOS = [
     ('strobel-139.', 'food-mozzarella-800', 800, 600, .45, .5),
     ('strobel-136.', 'food-plate-800', 800, 600, .5, .5),
     # intro polaroids
-    ('strobel-131.', 'mangia-700', 700, 700, .5, .28),
+    ('festa-italiana-woman', 'mangia-700', 700, 700, .5, .4),   # from the original site
     ('strobel-143.', 'salute-800', 800, 600, .5, .5),
     ('strobel-88.',  'famiglia-700', 700, 700, .5, .5),
     # activities
@@ -34,7 +34,7 @@ PHOTOS = [
     ('IMG_0626',     'bocce-900', 900, 900, .5, .5),
     ('2025-147_',    'idol-900', 900, 900, .5, .3),
     ('strobel-8.',   'sauce-900', 900, 900, .3, .5),
-    ('2025-112_',    'cucina-900', 900, 900, .5, .5),
+    ('IMG_0627',     'cucina-900', 900, 900, .5, .5),
     # get involved
     ('strobel-129.', 'volunteers-800', 800, 600, .5, .5),
     ('strobel-153.', 'sponsors-800', 800, 600, .5, .5),
@@ -42,9 +42,10 @@ PHOTOS = [
 OG = ('strobel-99.', 1200, 630, .5, .55)  # social share image
 
 def load(key):
-    name = next((f for f in os.listdir(SRC) if key in f), None)
-    if not name: sys.exit(f'no file matching "{key}" in {SRC}')
-    return ImageOps.exif_transpose(Image.open(os.path.join(SRC, name))).convert('RGB')
+    for src in SRCS:
+        name = next((f for f in os.listdir(src) if key in f), None) if os.path.isdir(src) else None
+        if name: return ImageOps.exif_transpose(Image.open(os.path.join(src, name))).convert('RGB')
+    sys.exit(f'no file matching "{key}" in {SRCS}')
 
 os.makedirs(OUT, exist_ok=True)
 for key, out, w, h, cx, cy in PHOTOS:
