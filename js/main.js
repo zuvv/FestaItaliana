@@ -75,7 +75,6 @@
   /* ── Lineup ───────────────────────────────────────────── */
   const state = {
     day: festDayIndex >= 0 && festDayIndex < F.days.length ? F.days[festDayIndex].key : F.days[0].key,
-    stage: 'all',
   };
 
   if (F.lineupYear !== F.festival.year) {
@@ -106,20 +105,6 @@
     e.preventDefault();
   });
 
-  // Stage chips — only stages that actually appear in the lineup
-  const usedStages = [...new Set(F.lineup.map((a) => a.stage))];
-  const chipBox = $('#stageChips');
-  chipBox.innerHTML = [`<button class="chip" data-stage="all">All stages</button>`]
-    .concat(usedStages.map((k) => {
-      const s = F.stages[k];
-      return `<button class="chip" data-stage="${k}" data-c="${s.color}"><span class="dot"></span>${esc(s.short)}</button>`;
-    })).join('');
-  chipBox.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-stage]');
-    if (!b) return;
-    state.stage = b.dataset.stage; renderLineup();
-  });
-
   function actHTML(a) {
     const s = F.stages[a.stage];
     return `
@@ -140,11 +125,9 @@
       t.tabIndex = sel ? 0 : -1;
     });
     $('#lineupPanel').setAttribute('aria-labelledby', `tab-${state.day}`);
-    $$('.chip', chipBox).forEach((c) => c.setAttribute('aria-pressed', c.dataset.stage === state.stage));
 
     const acts = F.lineup
       .filter((a) => a.day === state.day)
-      .filter((a) => state.stage === 'all' || a.stage === state.stage)
       .sort((a, b) => a.start.localeCompare(b.start));
 
     $('#schedule').innerHTML = acts.map(actHTML).join('');

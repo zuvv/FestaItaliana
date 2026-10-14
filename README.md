@@ -51,7 +51,7 @@ Everything that changes each year lives in **`js/data.js`**: dates, gate hours, 
 - **Food as real content.** 14 vendors filterable by Pizza / Pasta & Plates / Street Food / Dolci.
 - **Real 2025 festival photography** throughout, instead of three soft stock-style slides.
 - **A countdown "ticket stub"** that switches to "Oggi!" during the festival and "Grazie" afterward.
-- **Visitor info in plain language:** a bag-policy summary, South Gate entry for Festa Mass, an FAQ, and a real "Ways to get here" guide (The Hop, rideshare zones, MCTS, Bublr, Amtrak, parking) from the Summerfest grounds' official guidance.
+- **Visitor info in plain language:** a bag-policy summary, South Gate entry for Festa Mass, and an FAQ.
 - **The story.** A short history section (Third Ward, 1978, the ICC) sourced from the ICC's own history page, with room for archive photos.
 - **Built for phones first.** No horizontal scroll, 44px tap targets, and a reduced-motion setting is respected.
 - **Fast.** Photos converted to WebP (≈1.7 MB total, lazy-loaded), and no jQuery or page builder.
