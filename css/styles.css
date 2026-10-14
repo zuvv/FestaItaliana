@@ -88,7 +88,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
 .it-sm { font: 500 italic 1.05em/1 var(--f-display); text-transform: none; letter-spacing: 0; opacity: .8; margin-left: .35em; }
 .h3 .it-sm { font-size: .72em; vertical-align: 2px; }
 .newsletter-script .it-sm { font: 400 .5em/1 var(--f-body); font-style: normal; text-transform: uppercase; letter-spacing: .12em; opacity: .75; vertical-align: middle; margin-left: .6em; }
-.separator { width: 220px; height: auto; margin: 22px 0 26px; }
+.separator { width: 220px; height: auto; margin: 22px 0 26px; filter: drop-shadow(0 1px 1px rgba(31, 29, 27, .28)); }
 .section-head { margin-bottom: clamp(32px, 5vw, 52px); }
 .section-head-center { text-align: center; }
 .section-head-center .separator { margin-inline: auto; }
@@ -334,12 +334,12 @@ section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
 /* ==========================================================================
    Intro
    ========================================================================== */
-.intro { background: var(--paper) url('../assets/img/textures/bg-crust-1.jpg') center bottom / cover no-repeat; }
+.intro { background: linear-gradient(rgba(243, 228, 198, .82), rgba(243, 228, 198, .82)), url('../assets/img/textures/bg-crust-1.jpg') center bottom / cover no-repeat, var(--crema); }
 .intro-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 36px; }
 .stats div { display: flex; flex-direction: column-reverse; gap: 6px; border-top: 3px solid var(--ink); padding-top: 12px; }
 .stats div:nth-child(1) { border-color: var(--verde); }
-.stats div:nth-child(2) { border-color: var(--crema); }
+.stats div:nth-child(2) { border-color: #fff; }
 .stats div:nth-child(3) { border-color: var(--rosso); }
 .stats div:nth-child(4) { border-color: var(--notte); }
 .stats dd { margin: 0; font: 800 clamp(2.2rem, 4vw, 3rem)/1 var(--f-display); letter-spacing: -.03em; }
