@@ -126,7 +126,7 @@
       <li class="act">
         <p class="act-time">${fmtTime(a.start)}${a.end ? `<small>to ${fmtTime(a.end)}</small>` : ''}</p>
         <div class="act-main">
-          <h3 class="act-name">${esc(a.name)}<span class="act-tag">${esc(a.tag)}</span></h3>
+          <h3 class="act-name">${esc(a.name)}<span class="sr-only">, </span><span class="act-tag">${esc(a.tag)}</span></h3>
           <p class="act-blurb">${esc(a.blurb)}</p>
         </div>
         <p class="act-stage" data-c="${s.color}"><span class="dot"></span>${esc(s.name)}</p>
