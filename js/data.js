@@ -142,42 +142,43 @@ window.FESTA = {
 
   presentingSponsor: { name: 'Annex Wealth Management', logo: 'assets/img/brand/annex-wealth-logo.svg', url: 'https://annexwealth.com/' },
   sponsorsYear: 2026,
+  // [name, logo file, website]. Leave the website out for family/individual sponsors.
   sponsors: [
-    ['Annex Wealth Management', 'annex.png'],
-    ['Capri Communities', 'capri.png'],
-    ['Bartolotta', 'bartolotta-logo.png'],
-    ['Stifel', 'logo-stifel.png'],
-    ['MKE Airport', 'mke-airport-logo.png'],
-    ['Florentine Opera', 'florentine-opera-logo.png'],
-    ['Catholic Financial Life', 'cfl-logo.png'],
-    ['Uptown Ford', 'uptown-ford.png'],
-    ['Reina Auto', 'reina.png'],
-    ['Wisconsin Herd', 'wisconsin-herd.png'],
-    ['Milwaukee Milkmen', 'milkmen.png'],
-    ['Interstate Parking', 'interstate-parking.png'],
-    ['Peter Sciortino Bakery', 'logo-peter-sciortino-bakery.jpg'],
+    ['Capri Communities', 'capri.png', 'https://www.capricommunities.com/'],
+    ['Bartolotta Restaurants', 'bartolotta-logo.png', 'https://www.bartolottas.com/'],
+    ['Stifel', 'logo-stifel.png', 'https://www.stifel.com/'],
+    ['Milwaukee Mitchell International Airport', 'mke-airport-logo.png', 'https://www.mitchellairport.com/'],
+    ['Florentine Opera', 'florentine-opera-logo.png', 'https://www.florentineopera.org/'],
+    ['Catholic Financial Life', 'cfl-logo.png', 'https://www.catholicfinanciallife.org/'],
+    ['Uptown Ford Lincoln', 'uptown-ford.png', 'https://www.uptownmotors.com/'],
+    ['Reina International Auto', 'reina.png', 'https://www.reinaintlauto.com/'],
+    ['Wisconsin Herd', 'wisconsin-herd.png', 'https://wisconsin.gleague.nba.com/'],
+    ['Milwaukee Milkmen', 'milkmen.png', 'https://www.milwaukeemilkmen.com/'],
+    ['Interstate Parking', 'interstate-parking.png', 'https://www.interstateparking.com/'],
+    ['Peter Sciortino Bakery', 'logo-peter-sciortino-bakery.jpg', 'https://petersciortinosbakery.com/'],
     ['Papa Luigi’s', 'papa-luigis.png'],
-    ['Pedone Pinsa', 'pedonepinsa.png'],
-    ['Safina', 'safina.png'],
-    ['Greco & Sons', 'greco-sons-logo.png'],
-    ['Bassano', 'bassano-logo.png'],
-    ['Jo Cat’s Pub', 'jo-cats-logo.png'],
-    ['C. W. Purpero, Inc.', 'cwp.png'],
-    ['Gruber Law Offices', 'gruber.jpg'],
-    ['Harder Funeral Home', 'harder.png'],
-    ['Rose Spang', 'rose-span-logo.jpg'],
-    ['Chiropractic Company', 'logo-chiropractic-company.png'],
+    ['Pedone Pinsa', 'pedonepinsa.png', 'https://pedonepinsa.com/'],
+    ['Safina', 'safina.png', 'https://safinamke.com/'],
+    ['Greco & Sons', 'greco-sons-logo.png', 'https://grecoandsons.com/'],
+    ['Bassano Famiglia', 'bassano-logo.png'],
+    ['Jo-Cat’s Pub', 'jo-cats-logo.png', 'https://jocatsmke.com/'],
+    ['C. W. Purpero, Inc.', 'cwp.png', 'https://www.purpero.com/'],
+    ['Gruber Law Offices', 'gruber.jpg', 'https://www.gruber-law.com/'],
+    ['Harder Funeral Home', 'harder.png', 'https://www.harderfuneralhome.com/'],
+    ['Rose E. Purpero Spang', 'rose-span-logo.jpg'],
+    ['Chiropractic Company', 'logo-chiropractic-company.png', 'https://www.chiropracticcompany.com/'],
     ['MKE Life Church', 'logo-mke-life-church.png'],
-    ['PKSD', 'pksd-logo.png'],
+    ['PKSD Injury Law', 'pksd-logo.png', 'https://www.pksd.com/'],
   ],
 
   // Activity detail cards (the Famiglia section). Keys match data-activity="" in index.html.
   // ctas: kind 'primary' (default) or 'secondary'; icon: mail | phone | external | doc | pin | ticket | arrow
+  // photoPos: CSS object-position for the card photo (which part of the picture to keep when it's cropped).
   // dated: details are from a specific year → the card shows a "confirm for 2027" note.  tbd: no details yet.
   activitiesYear: 2026,
   activities: {
     mass: {
-      title: 'Festa Mass & Procession', when: 'Sunday · 10:30am', where: 'BMO Pavilion', photo: 'procession-800',
+      title: 'Festa Mass & Procession', when: 'Sunday · 10:30am', where: 'BMO Pavilion', photo: 'procession-800', photoPos: 'center 40%',
       tagline: 'The heart of Festa: Mass on the lakefront, followed by the traditional procession and Benediction.',
       body: [
         'Enter through the South Gate, which opens to everyone at 9:30am. Mass begins at 10:30am and is followed immediately by the procession of the saints and Benediction.',
@@ -217,7 +218,7 @@ window.FESTA = {
       related: ['mass'],
     },
     bocce: {
-      title: 'Festa Bocce Tournament', when: 'Sunday · 1pm', where: 'Henry Maier Festival Park', photo: 'bocce-900',
+      title: 'Festa Bocce Tournament', when: 'Sunday · 1pm', where: 'Henry Maier Festival Park', photo: 'bocce-900', photoPos: 'center 30%',
       tagline: 'Teams of four, single elimination with a consolation round, and cash on the line.',
       body: ['Every team plays at least two games. First place takes home a trophy and a cash prize; second and third place win cash. Registration is $100 per team of four, and admission tickets are mailed to team captains.'],
       facts: [['Team check-in', '12:30pm'], ['First roll', '1:00pm'], ['Format', 'Single elimination + consolation round'], ['Entry', '$100 per team of 4'], ['Prizes', 'Trophy + cash for 1st; cash for 2nd & 3rd'], ['Tickets', 'Mailed to team captains']],
@@ -240,7 +241,7 @@ window.FESTA = {
       dated: true,
     },
     idol: {
-      title: 'Italian Idol', when: 'Saturday · 8–10pm', where: 'Aurora Pavilion Stage', photo: 'idol-900',
+      title: 'Italian Idol', when: 'Saturday · 8–10pm', where: 'Aurora Pavilion Stage', photo: 'idol-900', photoPos: 'center 8%',
       tagline: 'Milwaukee’s longest-running amateur vocal competition, which celebrated its 19th year in 2026.',
       body: [
         'Italian Idol is open to singers 14 and older. A panel of judges scores each performance on multiple criteria, and $1,000 in cash prizes is awarded, including the crowning of the Italian Idol. This is not karaoke. All genres are welcome, and you don’t need to be Italian.',
@@ -252,7 +253,7 @@ window.FESTA = {
       dated: true,
     },
     sauce: {
-      title: 'Milwaukee’s Best Sauce', when: 'Saturday · 11am–1pm', where: 'Aurora Pavilion', photo: 'sauce-900',
+      title: 'Milwaukee’s Best Sauce', when: 'Saturday · 11am–1pm', where: 'Aurora Pavilion', photo: 'sauce-900', photoPos: 'center 8%',
       tagline: 'Think your nonna’s red sauce is the best in town? Prove it. Presented by Capri Communities.',
       body: [
         'Two categories: meat and meatless (no meatballs or large pieces of meat). Enter online, then bring a quart of sauce in a slow cooker to the preliminary judging at St. Rita Square. The top three in each category compete at Festa, where a Judges’ Choice and a People’s Choice champion are crowned in each category.',
@@ -281,14 +282,14 @@ window.FESTA = {
       tbd: true,
     },
     cucina: {
-      title: 'La Cucina Showcase', when: 'Festa weekend', photo: 'cucina-900',
+      title: 'La Cucina Showcase', when: 'Festa weekend', photo: 'cucina-900', photoPos: 'center 45%',
       tagline: 'Italian home cooking, live on stage.',
       body: ['Watch chefs and home cooks share recipes and techniques on the La Cucina stage, with the finished dish up on the big screen. The 2027 demo schedule will be posted here once it’s confirmed.'],
       ctas: [{ label: 'Questions? Call the ICC', href: 'tel:+14142232180', icon: 'phone', kind: 'secondary' }],
       tbd: true,
     },
     heritage: {
-      title: 'Italian Heritage Exhibit', when: 'All weekend', photo: 'heritage-900',
+      title: 'Italian Heritage Exhibit', when: 'All weekend', photo: 'heritage-900', photoPos: 'center 40%',
       tagline: 'A century of Italian Milwaukee in photographs, keepsakes and stories.',
       body: ['Browse historic photos of Milwaukee’s Italian families, neighborhoods and festivals, and find your family’s hometown on the “Is Your Ancestry Italian?” map of Italy and Sicily. The 2026 exhibit celebrated St. Francis of Assisi.'],
       related: ['banner'],
@@ -309,7 +310,7 @@ window.FESTA = {
       dated: true,
     },
     banner: {
-      title: 'Family Name Banners', when: 'Order ahead', where: 'Italian Wine Garden', photo: 'banner-900',
+      title: 'Family Name Banners', when: 'Order ahead', where: 'Italian Wine Garden', photo: 'banner-900', photoPos: 'center 40%',
       tagline: 'Fly your family name over the Giardino Italiano.',
       body: ['Order a personalized banner with your family name and the city, town or region of your roots. It hangs in the Italian Wine Garden all weekend, and when Festa ends, it’s yours to take home.'],
       facts: [['Price', '$150'], ['Colors', 'Gold, red or green'], ['Displayed', 'Italian Wine Garden, all weekend'], ['After Festa', 'Yours to keep']],

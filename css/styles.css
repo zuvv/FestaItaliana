@@ -456,8 +456,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
    Food
    ========================================================================== */
 .food { padding-top: 0; }
-.food-banner { position: relative; height: clamp(300px, 40vw, 480px); color: #fff; isolation: isolate; overflow: hidden; }
-.food-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.food-banner { position: relative; height: clamp(300px, 42vw, 640px); color: #fff; isolation: isolate; overflow: hidden; }
+.food-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 25% 0; z-index: -2; }
 .food-banner::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(31,16,10,.82) 100%); }
 .food-banner-copy { position: absolute; left: 0; right: 0; bottom: clamp(28px, 4vw, 48px); }
 .food-banner .script { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1; color: var(--oro); transform: rotate(-4deg); transform-origin: left bottom; }
@@ -643,6 +643,7 @@ a.tile-photo:hover img { transform: scale(1.04); }
 }
 .sponsor-grid li { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.05); transition: transform .2s, box-shadow .2s; }
 .sponsor-grid li:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.sponsor-grid a { display: block; border-radius: 12px; }
 .sponsor-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
 
 /* ==========================================================================
@@ -699,7 +700,7 @@ body.is-locked { overflow: hidden; }
   cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.22);
 }
 .act-dlg-close .ico { width: 22px; height: 22px; }
-.act-dlg-photo { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 35%; }
+.act-dlg-photo { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 20%; }
 .act-dlg-copy { padding: 28px clamp(20px, 4vw, 40px) 36px; }
 .act-dlg-copy .eyebrow { margin-bottom: 10px; padding-right: 56px; }
 .act-dlg-title { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 12px; padding-right: 40px; }
@@ -721,7 +722,7 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 600px) {
   .act-dialog { padding: 0; }
   .act-dlg-card { width: 100%; height: 100%; max-height: none; border-radius: 0; }
-  .act-dlg-photo { aspect-ratio: 16 / 10; }
+  .act-dlg-photo { aspect-ratio: 4 / 3; }
   .act-facts { grid-template-columns: 1fr; }
   .act-ctas .btn { width: 100%; white-space: normal; text-align: center; }
 }

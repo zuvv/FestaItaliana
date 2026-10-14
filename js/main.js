@@ -184,8 +184,10 @@
   renderFood();
 
   /* ── Sponsors ─────────────────────────────────────────── */
-  $('#sponsorGrid').innerHTML = F.sponsors.map(([name, file]) => `
-    <li><img src="assets/img/sponsors/${encodeURI(file)}" alt="${esc(name)}" loading="lazy" width="400" height="300"></li>`).join('');
+  $('#sponsorGrid').innerHTML = F.sponsors.map(([name, file, url]) => {
+    const img = `<img src="assets/img/sponsors/${encodeURI(file)}" alt="${esc(name)}" loading="lazy" width="400" height="300">`;
+    return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener" aria-label="${esc(name)} (opens in new tab)">${img}</a>` : img}</li>`;
+  }).join('');
 
   /* ── Header: mobile menu, scroll state, scrollspy ─────── */
   const header = $('.site-header');
@@ -239,7 +241,7 @@
     const a = F.activities[key];
     if (!a) return;
     dlgBody.innerHTML = `
-      ${a.photo ? `<img class="act-dlg-photo" src="assets/img/photos/${a.photo}.webp" alt="">` : ''}
+      ${a.photo ? `<img class="act-dlg-photo" src="assets/img/photos/${a.photo}.webp" alt=""${a.photoPos ? ` style="object-position:${esc(a.photoPos)}"` : ''}>` : ''}
       <div class="act-dlg-copy">
         <p class="eyebrow eyebrow-rosso">${esc(a.when)}${a.where ? ` · ${esc(a.where)}` : ''}</p>
         <h2 class="h2 act-dlg-title" id="activityTitle">${esc(a.title)}</h2>
