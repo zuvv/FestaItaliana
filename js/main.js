@@ -241,7 +241,7 @@
     const a = F.activities[key];
     if (!a) return;
     dlgBody.innerHTML = `
-      ${a.photo ? `<img class="act-dlg-photo" src="assets/img/photos/${a.photo}.webp" alt=""${a.photoPos ? ` style="object-position:${esc(a.photoPos)}"` : ''}>` : ''}
+      ${a.photo ? `<img class="act-dlg-photo${a.photoFit === 'contain' ? ' act-dlg-photo-contain' : ''}" src="assets/img/photos/${a.photo}.webp" alt="" style="${a.photoPos ? `object-position:${esc(a.photoPos)};` : ''}${a.photoBg ? `background:${esc(a.photoBg)};` : ''}">` : ''}
       <div class="act-dlg-copy">
         <p class="eyebrow eyebrow-rosso">${esc(a.when)}${a.where ? ` · ${esc(a.where)}` : ''}</p>
         <h2 class="h2 act-dlg-title" id="activityTitle">${esc(a.title)}</h2>

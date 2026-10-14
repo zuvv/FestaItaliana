@@ -41,6 +41,7 @@ PHOTOS = [
     ('strobel-153.', 'sponsors-800', 800, 600, .5, .5),
     # ICC product art (from iccmilwaukee.com store)
     ('family-name-banner', 'banner-900', 900, 900, .5, .5, (.08, .04, .92, .64)),   # map only, no sample text
+    ('family-name-banner', 'banner-full-700', 700, 933, .5, .5),   # whole banner, for the detail card
 ]
 OG = ('strobel-99.', 1200, 630, .5, .55)  # social share image
 

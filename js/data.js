@@ -156,7 +156,7 @@ window.FESTA = {
     ['Milwaukee Milkmen', 'milkmen.png', 'https://www.milwaukeemilkmen.com/'],
     ['Interstate Parking', 'interstate-parking.png', 'https://www.interstateparking.com/'],
     ['Peter Sciortino Bakery', 'logo-peter-sciortino-bakery.jpg', 'https://petersciortinosbakery.com/'],
-    ['Papa Luigi’s', 'papa-luigis.png'],
+    ['Papa Luigi’s', 'papa-luigis.png', 'https://papaluigiscudahy.com/'],
     ['Pedone Pinsa', 'pedonepinsa.png', 'https://pedonepinsa.com/'],
     ['Safina', 'safina.png', 'https://safinamke.com/'],
     ['Greco & Sons', 'greco-sons-logo.png', 'https://grecoandsons.com/'],
@@ -310,7 +310,7 @@ window.FESTA = {
       dated: true,
     },
     banner: {
-      title: 'Family Name Banners', when: 'Order ahead', where: 'Italian Wine Garden', photo: 'banner-900', photoPos: 'center 40%',
+      title: 'Family Name Banners', when: 'Order ahead', where: 'Italian Wine Garden', photo: 'banner-full-700', photoFit: 'contain', photoBg: '#de4212',
       tagline: 'Fly your family name over the Giardino Italiano.',
       body: ['Order a personalized banner with your family name and the city, town or region of your roots. It hangs in the Italian Wine Garden all weekend, and when Festa ends, it’s yours to take home.'],
       facts: [['Price', '$150'], ['Colors', 'Gold, red or green'], ['Displayed', 'Italian Wine Garden, all weekend'], ['After Festa', 'Yours to keep']],
