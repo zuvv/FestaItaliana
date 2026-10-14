@@ -26,6 +26,7 @@ Everything that changes each year lives in **`js/data.js`**: dates, gate hours, 
 | Who's playing when | `lineup[]` (day, start/end in 24h, stage key, name, tag, blurb) |
 | Food vendors | `vendors[]` |
 | Sponsor logos | `sponsors[]` (files in `assets/img/sponsors/`) |
+| Activity cards (Famiglia section) | `activities{}` (copy, facts, sign-up/contact buttons) |
 | Remove the "design preview" bar | `preview: false` |
 
 ## What we're improving
@@ -46,6 +47,7 @@ Everything that changes each year lives in **`js/data.js`**: dates, gate hours, 
 **Where this design goes further than both**
 - **One page answers the big questions.** When, where and how much are all visible without scrolling, and tickets are one tap from anywhere through the sticky header.
 - **A real, filterable lineup.** Browse by day and by stage, as text Google can index and screen readers can read.
+- **Every activity has a detail card.** Dates, format, fees, prizes and what to bring, with the real sign-up or contact link as the main button (bocce registration, Idol auditions, the sauce-contest entry site, the photo-contest form, the choir director, the banner store). Cards are deep-linkable, e.g. `#festa-bocce`.
 - **Food as real content.** 14 vendors filterable by Pizza / Pasta & Plates / Street Food / Dolci.
 - **Real 2025 festival photography** throughout, instead of three soft stock-style slides.
 - **A countdown "ticket stub"** that switches to "Oggi!" during the festival and "Grazie" afterward.

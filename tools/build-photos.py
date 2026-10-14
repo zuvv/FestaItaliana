@@ -5,7 +5,8 @@
 
 Reads from "Festa 2025/" and assets/img/original/ (both uncommitted), writes to assets/img/photos/.
 Each line below is: (filename fragment to match, output name, width, height, crop-center x, crop-center y).
-Crop centers are 0–1; (0.5, 0.5) is the middle of the photo. Needs Pillow: pip3 install pillow
+Crop centers are 0–1; (0.5, 0.5) is the middle of the photo. An optional 7th value (left, top, right, bottom)
+in 0–1 fractions pre-crops the source to that box first. Needs Pillow: pip3 install pillow
 """
 import os, sys
 from PIL import Image, ImageOps
@@ -38,6 +39,8 @@ PHOTOS = [
     # get involved
     ('strobel-129.', 'volunteers-800', 800, 600, .5, .5),
     ('strobel-153.', 'sponsors-800', 800, 600, .5, .5),
+    # ICC product art (from iccmilwaukee.com store)
+    ('family-name-banner', 'banner-900', 900, 900, .5, .5, (.08, .04, .92, .64)),   # map only, no sample text
 ]
 OG = ('strobel-99.', 1200, 630, .5, .55)  # social share image
 
@@ -48,9 +51,12 @@ def load(key):
     sys.exit(f'no file matching "{key}" in {SRCS}')
 
 os.makedirs(OUT, exist_ok=True)
-for key, out, w, h, cx, cy in PHOTOS:
+for key, out, w, h, cx, cy, *box in PHOTOS:
     path = os.path.join(OUT, out + '.webp')
-    ImageOps.fit(load(key), (w, h), Image.LANCZOS, centering=(cx, cy)).save(path, 'WEBP', quality=76, method=6)
+    im = load(key)
+    if box:
+        l, t, r, b = box[0]; im = im.crop((round(im.width * l), round(im.height * t), round(im.width * r), round(im.height * b)))
+    ImageOps.fit(im, (w, h), Image.LANCZOS, centering=(cx, cy)).save(path, 'WEBP', quality=76, method=6)
     print(f'{out:22s} {w}x{h} {os.path.getsize(path) // 1024}KB')
 key, w, h, cx, cy = OG
 ImageOps.fit(load(key), (w, h), Image.LANCZOS, centering=(cx, cy)).save(os.path.join(ROOT, 'assets/img/og-image.jpg'), quality=82, optimize=True, progressive=True)

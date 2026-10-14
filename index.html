@@ -38,6 +38,10 @@
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
     <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5Z" fill="currentColor"/></symbol>
     <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L17 13l4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4 9h4v11H4zM6 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM10 9h3.8v1.6c.6-1 1.9-1.9 3.8-1.9 3.4 0 4.4 2 4.4 5.3V20h-4v-5.3c0-1.5-.3-2.8-1.9-2.8s-2.1 1.2-2.1 2.8V20h-4V9Z" fill="currentColor"/></symbol>
   </svg>
 
@@ -228,68 +232,91 @@
         </header>
 
         <div class="bento">
-          <a class="tile tile-photo tile-wide" data-link="mass" href="#">
+          <a class="tile tile-photo tile-wide" href="#festa-mass" data-activity="mass">
             <img src="assets/img/photos/procession-800.webp" srcset="assets/img/photos/procession-800.webp 800w, assets/img/photos/procession-1400.webp 1400w" sizes="(min-width: 900px) 50vw, 100vw" alt="Society members in sashes gathered with the saint statues before the Festa procession" loading="lazy">
             <div class="tile-copy">
-              <span class="when">Sun · 10:30am</span>
+              <span class="when">Sun · 10:30am · BMO Pavilion</span>
               <h3>Festa Mass &amp; Procession</h3>
               <p>Mass, then the traditional procession and Benediction. Enter through the South Gate from 9:30am, and bring 3 canned goods for Hunger Task Force.</p>
             </div>
           </a>
-          <div class="tile tile-photo">
+          <a class="tile tile-photo" href="#festa-heritage" data-activity="heritage">
             <img src="assets/img/photos/heritage-900.webp" alt="Visitors browsing a wall of historic photographs at the Italian Heritage Exhibit" loading="lazy">
             <div class="tile-copy">
               <span class="when">All weekend</span>
               <h3>Italian Heritage Exhibit</h3>
               <p>Historic photos and stories of Italian Milwaukee. Look for your own famiglia.</p>
             </div>
-          </div>
-          <a class="tile tile-photo" data-link="bocce" href="#">
+          </a>
+          <a class="tile tile-photo" href="#festa-bocce" data-activity="bocce">
             <img src="assets/img/photos/bocce-900.webp" alt="A player rolling a bocce ball down a grass court" loading="lazy">
             <div class="tile-copy">
-              <span class="when">Tournament</span>
-              <h3>Bocce &amp; Futsal</h3>
-              <p>Sign up your squadra for the bocce and soccer tournaments.</p>
+              <span class="when">Sun · 1pm · Tournament</span>
+              <h3>Bocce Tournament</h3>
+              <p>Teams of four, $100 a team, cash prizes. Register your squadra.</p>
             </div>
           </a>
-          <a class="tile tile-photo tile-photo-sm" data-link="idol" href="#">
+          <a class="tile tile-photo tile-photo-sm" href="#festa-idol" data-activity="idol">
             <img src="assets/img/photos/idol-900.webp" alt="A singer performing on stage at Italian Idol" loading="lazy">
             <div class="tile-copy">
               <span class="when">Sat · 8pm · Aurora Pavilion</span>
               <h3>Italian Idol</h3>
-              <p>Festa’s own singing competition.</p>
+              <p>Festa’s own singing competition. $1,000 in prizes.</p>
             </div>
           </a>
-          <a class="tile tile-photo tile-photo-sm" data-link="sauce" href="#">
+          <a class="tile tile-photo tile-photo-sm" href="#festa-sauce" data-activity="sauce">
             <img src="assets/img/photos/sauce-900.webp" alt="Volunteers ladling red sauce samples at the Best Sauce Contest" loading="lazy">
             <div class="tile-copy">
-              <span class="when">Saturday</span>
+              <span class="when">Sat · 11am · Aurora Pavilion</span>
               <h3>Best Sauce Contest</h3>
               <p>The top three red sauces, meat and meatless, go head to head.</p>
             </div>
           </a>
-          <div class="tile tile-text tile-rosso">
+          <a class="tile tile-text tile-rosso tile-span2" href="#festa-pizza" data-activity="pizza">
             <span class="when">Kids</span>
             <h3>Pizza-Making Contest</h3>
             <p>Little chefs, big toppings.</p>
-          </div>
-          <div class="tile tile-text tile-notte">
+          </a>
+          <a class="tile tile-text tile-notte tile-span2" href="#festa-fireworks" data-activity="fireworks">
             <span class="when">After dark</span>
             <h3>Fireworks over the lake</h3>
             <p>The perfect finale to a lakefront night.</p>
-          </div>
-          <div class="tile tile-photo tile-photo-sm">
+          </a>
+          <a class="tile tile-photo tile-photo-sm" href="#festa-cucina" data-activity="cucina">
             <img src="assets/img/photos/cucina-900.webp" alt="A chef cooking on the La Cucina stage with the finished dish on the big screen" loading="lazy">
             <div class="tile-copy">
               <span class="when">Cooking</span>
               <h3>La Cucina Showcase</h3>
               <p>A celebration of Italian home cooking.</p>
             </div>
-          </div>
-          <a class="tile tile-text tile-oro" data-link="photoContest" href="#">
+          </a>
+          <a class="tile tile-text tile-oro" href="#festa-photo" data-activity="photo">
             <span class="when">Enter online</span>
             <h3>Photo Contest</h3>
-            <p>Share your best Festa moment.</p>
+            <p>Photos from Italy. Finalists go on display at Festa.</p>
+          </a>
+          <a class="tile tile-text tile-verde" href="#festa-futsal" data-activity="futsal">
+            <span class="when">Sat adults · Sun youth</span>
+            <h3>Futsal Tournament</h3>
+            <p>Five-a-side soccer. Kids play free.</p>
+          </a>
+          <a class="tile tile-text tile-notte" href="#festa-choir" data-activity="choir">
+            <span class="when">Sing at Festa Mass</span>
+            <h3>Festa Mass Choir</h3>
+            <p>Join the choir for Sunday Mass.</p>
+          </a>
+          <a class="tile tile-text tile-crema" href="#festa-communicants" data-activity="communicants">
+            <span class="when">Festa Mass</span>
+            <h3>First Holy Communicants</h3>
+            <p>Kids who made First Communion walk in the procession.</p>
+          </a>
+          <a class="tile tile-photo tile-photo-sm" href="#festa-banner" data-activity="banner">
+            <img src="assets/img/photos/banner-900.webp" alt="A red Festa family name banner with a green map of Italy" loading="lazy">
+            <div class="tile-copy">
+              <span class="when">Order ahead · $150</span>
+              <h3>Family Name Banners</h3>
+              <p>Fly your name in the Wine Garden.</p>
+            </div>
           </a>
         </div>
       </div>
@@ -411,6 +438,14 @@
       </div>
     </section>
   </main>
+
+  <!-- Activity detail card (filled from FESTA.activities) -->
+  <dialog class="act-dialog" id="activityDialog" aria-labelledby="activityTitle">
+    <div class="act-dlg-card">
+      <button class="act-dlg-close" id="activityClose" type="button" aria-label="Close"><svg class="ico"><use href="#i-x"/></svg></button>
+      <div id="activityBody"></div>
+    </div>
+  </dialog>
 
   <!-- ─────────────── FOOTER ─────────────── -->
   <footer class="site-footer">

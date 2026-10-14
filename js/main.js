@@ -213,6 +213,68 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   navLinks.forEach((a) => { const sec = $(a.getAttribute('href')); if (sec) spy.observe(sec); });
 
+  /* ── Activity detail cards ────────────────────────────── */
+  const dlg = $('#activityDialog');
+  const dlgBody = $('#activityBody');
+  const ICON = { mail: '#i-mail', phone: '#i-phone', external: '#i-external', doc: '#i-doc', pin: '#i-pin', ticket: '#i-ticket', arrow: '#i-arrow' };
+
+  // "Details →" affordance on every tile that opens a card
+  $$('.bento [data-activity]').forEach((t) => {
+    (t.querySelector('.tile-copy') || t).insertAdjacentHTML('beforeend', '<span class="tile-more">Details <svg class="ico"><use href="#i-arrow"/></svg></span>');
+  });
+
+  const ctaHTML = (c) => {
+    const ext = /^https?:/.test(c.href);
+    return `<a class="btn ${c.kind === 'secondary' ? 'btn-outline' : 'btn-rosso'}" href="${esc(c.href)}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+      <svg class="ico"><use href="${ICON[c.icon] || ICON.arrow}"/></svg>${esc(c.label)}</a>`;
+  };
+  const contactHTML = (c) => {
+    const bits = [];
+    if (c.email) bits.push(`<a href="mailto:${esc(c.email)}">${esc(c.email)}</a>`);
+    if (c.phone) bits.push(`<a href="tel:+1${c.phone.replace(/\D/g, '').slice(0, 10)}">${esc(c.phone)}</a>`);
+    return `<p class="act-contact"><strong>${esc(c.name)}</strong>${c.role ? `, ${esc(c.role)}` : ''}${bits.length ? ' · ' + bits.join(' · ') : ''}</p>`;
+  };
+
+  function openActivity(key) {
+    const a = F.activities[key];
+    if (!a) return;
+    dlgBody.innerHTML = `
+      ${a.photo ? `<img class="act-dlg-photo" src="assets/img/photos/${a.photo}.webp" alt="">` : ''}
+      <div class="act-dlg-copy">
+        <p class="eyebrow eyebrow-rosso">${esc(a.when)}${a.where ? ` · ${esc(a.where)}` : ''}</p>
+        <h2 class="h2 act-dlg-title" id="activityTitle">${esc(a.title)}</h2>
+        ${a.tagline ? `<p class="lede">${esc(a.tagline)}</p>` : ''}
+        ${(a.body || []).map((p) => `<p>${esc(p)}</p>`).join('')}
+        ${a.facts?.length ? `<dl class="act-facts">${a.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
+        ${a.ctas?.length ? `<div class="act-ctas">${a.ctas.map(ctaHTML).join('')}</div>` : ''}
+        ${a.contact ? contactHTML(a.contact) : ''}
+        ${a.related?.length ? `<p class="act-related">See also: ${a.related.map((k) => `<a href="#festa-${k}" data-activity="${k}">${esc(F.activities[k].title)}</a>`).join(' · ')}</p>` : ''}
+        ${a.note ? `<p class="fine act-note">${esc(a.note)}</p>` : ''}
+        ${a.tbd ? `<p class="fine act-note">Details for ${F.festival.year} are still being confirmed.</p>` : ''}
+        ${a.dated && !a.note ? `<p class="fine act-note">Details shown are from Festa ${F.activitiesYear}. ${F.festival.year} dates and deadlines will be updated once confirmed.</p>` : ''}
+      </div>`;
+    if (!dlg.open) dlg.showModal();
+    $('.act-dlg-card', dlg).scrollTop = 0;
+    document.body.classList.add('is-locked');
+    if (location.hash !== `#festa-${key}`) history.replaceState(null, '', `#festa-${key}`);
+  }
+  dlg.addEventListener('close', () => {
+    document.body.classList.remove('is-locked');
+    if (location.hash.startsWith('#festa-')) history.replaceState(null, '', location.pathname + location.search);
+  });
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); }); // backdrop
+  $('#activityClose').addEventListener('click', () => dlg.close());
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-activity]');
+    if (!t) return;
+    e.preventDefault();
+    openActivity(t.dataset.activity);
+  });
+  dlgBody.addEventListener('click', (e) => { if (e.target.closest('a[href="#lineup"]')) dlg.close(); });
+  const openFromHash = () => { const m = location.hash.match(/^#festa-([a-z-]+)$/); if (m && F.activities[m[1]]) openActivity(m[1]); };
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+
   /* ── Newsletter (demo: wire to Mailchimp / Constant Contact before launch) ── */
   $('#newsletterForm').addEventListener('submit', (e) => {
     e.preventDefault();
