@@ -27,7 +27,7 @@ PHOTOS = [
     ('strobel-136.', 'food-plate-800', 800, 600, .5, .5),
     # intro polaroids
     ('festa-italiana-woman', 'mangia-700', 700, 700, .5, .4),   # from the original site
-    ('strobel-143.', 'salute-800', 800, 600, .5, .5),
+    ('2025-3_',      'dance-800', 800, 600, .5, .5),
     ('strobel-88.',  'famiglia-700', 700, 700, .5, .5),
     # activities
     ('strobel-57.',  'procession-1400', 1400, 788, .5, .5), ('strobel-57.', 'procession-800', 800, 450, .5, .5),
