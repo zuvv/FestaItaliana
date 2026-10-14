@@ -516,12 +516,14 @@ a.tile:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .tile-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .6s; }
 .tile-photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(3,42,46,0) 25%, rgba(3,42,46,.7) 55%, rgba(3,42,46,.96) 100%); }
 a.tile-photo:hover img { transform: scale(1.04); }
-.tile-photo .when { color: var(--oro); }
+.tile-photo .when { color: var(--oro); display: inline-block; background: rgba(3, 42, 46, .8); padding: .5em .65em; border-radius: 5px; backdrop-filter: blur(3px); }
 .tile[data-activity] { cursor: pointer; }
 .tile-more { display: inline-flex; align-items: center; gap: .35em; margin-top: 12px; font: 700 .78rem/1 var(--f-cond); text-transform: uppercase; letter-spacing: .12em; opacity: .85; }
 .tile-more .ico { transition: transform .2s; }
 .tile:hover .tile-more .ico { transform: translateX(4px); }
 .tile-photo-sm { grid-row: auto; min-height: 280px; }
+.tile-photo-sm::after { background: linear-gradient(180deg, rgba(3,42,46,.12) 0%, rgba(3,42,46,.6) 45%, rgba(3,42,46,.96) 100%); }
+.tile-photo-dim::after { background: linear-gradient(180deg, rgba(3,42,46,.3) 0%, rgba(3,42,46,.82) 40%, rgba(3,42,46,.97) 100%); } /* for busy artwork */
 .tile-photo-sm h3 { font-size: clamp(1.3rem, 2vw, 1.5rem); }
 .tile-wide { grid-column: span 2; }
 .tile-wide h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
