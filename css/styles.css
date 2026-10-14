@@ -370,6 +370,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
    ========================================================================== */
 .section-notte { background: var(--notte) url('../assets/img/textures/bg-italy-1.png') repeat; background-size: 520px; color: #fff; }
 .section-notte .lede { color: rgba(255,255,255,.78); }
+.lineup .h2 { font-family: var(--f-body); font-weight: 700; letter-spacing: -.025em; }
 
 .day-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }
 .day-tab {
