@@ -44,7 +44,7 @@
   /* ── Hours + prices ───────────────────────────────────── */
   $('#hoursList').innerHTML = F.days.map((d) => `
     <li class="${d.note ? 'has-note' : ''}">
-      <span class="d">${esc(d.it)}<small>${esc(d.en.slice(0, 3))}</small></span>
+      <span class="d">${esc(d.en)}<small lang="it">${esc(d.it)}</small></span>
       <span class="t">${fmtRange(d.open, d.close)}</span>
       ${d.note ? `<span class="n">${esc(d.note)}</span>` : ''}
     </li>`).join('');
@@ -88,8 +88,8 @@
   const tabs = $('#dayTabs');
   tabs.innerHTML = F.days.map((d) => `
     <button class="day-tab" role="tab" id="tab-${d.key}" data-day="${d.key}" aria-controls="lineupPanel">
-      <span class="it">${esc(d.it)}</span>
-      <span class="meta"><span class="en">${esc(d.en)} · </span>${fmtRange(d.open, d.close)}</span>
+      <span class="it">${esc(d.en)}</span>
+      <span class="meta"><span class="it-name" lang="it">${esc(d.it)} · </span>${fmtRange(d.open, d.close)}</span>
     </button>`).join('');
   tabs.addEventListener('click', (e) => {
     const b = e.target.closest('[data-day]');
